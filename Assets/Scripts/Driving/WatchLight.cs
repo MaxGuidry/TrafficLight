@@ -15,7 +15,7 @@ public class WatchLight : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         velocity = new Vector3(0, 0, 0);
-        maxVelo = 200;
+        maxVelo = 2000;
     }
     public float dot;
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class WatchLight : MonoBehaviour
     public void Stop()
     {
         velocity += acceleration * Time.deltaTime;
-        if (Vector3.Dot(velocity.normalized, transform.forward.normalized)== -1)
+        if (Vector3.Dot(velocity.normalized, transform.forward.normalized)>= -1&& Vector3.Dot(velocity.normalized, transform.forward.normalized) <= -.95f)
         {
             velocity = velocity * 0;
             
